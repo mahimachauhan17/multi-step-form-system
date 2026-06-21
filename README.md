@@ -2,7 +2,7 @@
 
 A 4-step form built with plain HTML, CSS, and JavaScript — no build tools or frameworks required.
 
-**Live demo:** _(add your GitHub Pages link here after deploying)_
+**Live demo:** 
 
 ## Features
 
