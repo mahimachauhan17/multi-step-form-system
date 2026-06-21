@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi-Step Form</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="form-wrapper">
+
+  <!-- Step indicator -->
+  <ol class="stepper" id="stepper">
+    <li class="step" data-step="1">
+      <span class="step-circle">1</span>
+      <span class="step-label">Personal Info</span>
+    </li>
+    <li class="step" data-step="2">
+      <span class="step-circle">2</span>
+      <span class="step-label">Address</span>
+    </li>
+    <li class="step" data-step="3">
+      <span class="step-circle">3</span>
+      <span class="step-label">Account</span>
+    </li>
+    <li class="step" data-step="4">
+      <span class="step-circle">4</span>
+      <span class="step-label">Review</span>
+    </li>
+  </ol>
+
+  <form id="multiStepForm" novalidate>
+
+    <!-- STEP 1: Personal Info -->
+    <section class="form-step" data-step="1">
+      <h2>Personal Info</h2>
+
+      <div class="field">
+        <label for="firstName">First name</label>
+        <input type="text" id="firstName" name="firstName" autocomplete="given-name">
+        <span class="error-msg" data-for="firstName"></span>
+      </div>
+
+      <div class="field">
+        <label for="lastName">Last name</label>
+        <input type="text" id="lastName" name="lastName" autocomplete="family-name">
+        <span class="error-msg" data-for="lastName"></span>
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" autocomplete="email">
+        <span class="error-msg" data-for="email"></span>
+      </div>
+
+      <div class="field">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="e.g. 9876543210">
+        <span class="error-msg" data-for="phone"></span>
+      </div>
+    </section>
+
+    <!-- STEP 2: Address -->
+    <section class="form-step" data-step="2">
+      <h2>Address</h2>
+
+      <div class="field">
+        <label for="street">Street address</label>
+        <input type="text" id="street" name="street" autocomplete="address-line1">
+        <span class="error-msg" data-for="street"></span>
+      </div>
+
+      <div class="field">
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" autocomplete="address-level2">
+        <span class="error-msg" data-for="city"></span>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="state">State</label>
+          <input type="text" id="state" name="state" autocomplete="address-level1">
+          <span class="error-msg" data-for="state"></span>
+        </div>
+
+        <div class="field">
+          <label for="zip">PIN / ZIP code</label>
+          <input type="text" id="zip" name="zip" autocomplete="postal-code">
+          <span class="error-msg" data-for="zip"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 3: Account Setup -->
+    <section class="form-step" data-step="3">
+      <h2>Account Setup</h2>
+
+      <div class="field">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" autocomplete="username">
+        <span class="error-msg" data-for="username"></span>
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" autocomplete="new-password">
+        <span class="hint">At least 8 characters, with a number.</span>
+        <span class="error-msg" data-for="password"></span>
+      </div>
+
+      <div class="field">
+        <label for="confirmPassword">Confirm password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" autocomplete="new-password">
+        <span class="error-msg" data-for="confirmPassword"></span>
+      </div>
+    </section>
+
+    <!-- STEP 4: Review -->
+    <section class="form-step" data-step="4">
+      <h2>Review &amp; Submit</h2>
+      <p class="review-intro">Check your details before submitting.</p>
+      <dl class="review-list" id="reviewList"></dl>
+
+      <div class="field checkbox-field">
+        <input type="checkbox" id="confirmAccurate" name="confirmAccurate">
+        <label for="confirmAccurate">I confirm the above information is accurate.</label>
+        <span class="error-msg" data-for="confirmAccurate"></span>
+      </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="form-nav">
+      <button type="button" id="backBtn" class="btn btn-secondary">Back</button>
+      <button type="button" id="nextBtn" class="btn btn-primary">Next</button>
+      <button type="submit" id="submitBtn" class="btn btn-primary" hidden>Submit</button>
+    </div>
+
+  </form>
+
+  <div class="success-message" id="successMessage" hidden>
+    <h2>You're all set 🎉</h2>
+    <p>Your form has been submitted successfully.</p>
+    <button type="button" id="restartBtn" class="btn btn-secondary">Fill out another response</button>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
